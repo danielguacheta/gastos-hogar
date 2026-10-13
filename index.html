@@ -795,8 +795,8 @@ async function renderTable(){
       });
       col3.appendChild(inp);
 
-      // Botón replicar valor anterior
-      if(pa>0 && ca===0){
+      // Botón replicar valor anterior — aparece si no está pagado y el valor anterior es distinto al actual
+      if(pa>0 && !paid && pa!==ca){
         const repBtn=document.createElement('button');
         repBtn.className='rep-btn';
         repBtn.title='Usar valor del mes anterior';
