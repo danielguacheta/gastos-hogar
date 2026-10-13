@@ -1,0 +1,24 @@
+{
+  "name": "Gastos del Hogar · Familia Guacheta Noguera",
+  "short_name": "Gastos Hogar",
+  "description": "Control de gastos mensuales de la Familia Guacheta Noguera",
+  "start_url": "/gastos-hogar/",
+  "display": "standalone",
+  "background_color": "#093C71",
+  "theme_color": "#093C71",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
