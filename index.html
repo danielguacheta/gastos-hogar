@@ -233,7 +233,15 @@ header {
 .er-sub .dn { color:var(--pbi-green); }
 
 /* col 3 — input */
-.er-input-wrap { padding:0 4px; }
+.er-input-wrap { padding:0 4px; display:flex; flex-direction:column; gap:3px; }
+.rep-btn {
+  font-size:.6rem; color:var(--pbi-blue);
+  background:rgba(0,115,180,.08); border:1px solid rgba(0,115,180,.25);
+  border-radius:4px; padding:2px 6px; cursor:pointer;
+  text-align:center; white-space:nowrap;
+  transition:background .15s;
+}
+.rep-btn:hover { background:rgba(0,115,180,.18); }
 .ai {
   width:100%;
   padding:5px 6px;
@@ -786,6 +794,22 @@ async function renderTable(){
         if(raw&&raw!=='0') inp.value='$'+parseInt(raw).toLocaleString('es-CO');
       });
       col3.appendChild(inp);
+
+      // Botón replicar valor anterior
+      if(pa>0 && ca===0){
+        const repBtn=document.createElement('button');
+        repBtn.className='rep-btn';
+        repBtn.title='Usar valor del mes anterior';
+        repBtn.innerHTML='↩ '+fmtCOP(pa);
+        repBtn.addEventListener('click',()=>{
+          inp.value=fmtCOP(pa);
+          inp.setAttribute('data-raw',pa);
+          inp.classList.add('hv');
+          updAmt(idx, pa);
+          repBtn.remove();
+        });
+        col3.appendChild(repBtn);
+      }
 
       /* col4 */
       const col4=document.createElement('div'); col4.className='er-check-wrap';
